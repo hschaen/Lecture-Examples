@@ -1,0 +1,8 @@
+<h1><%= @herb.name %></h1>
+<p>Needs water: <%= @herb.is_watered %></p>
+
+<div>
+  <%= link_to "Herb List", all_herbs_path %>
+  <br />
+  <%= link_to "Delete", delete_herb_path(@herb), method: :delete %>
+</div>

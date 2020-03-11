@@ -1,0 +1,22 @@
+<h1>Add a Herb</h1>
+
+<%= form_with model: @herb, local: true do |form| %>
+  <% if @herb.errors.any? %>
+    <div style="background-color: red">
+      <p>There is a problem, please try again.</p>
+      <ul>
+        <% @herb.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <br />
+  <%= form.label :is_watered %>
+  <%= form.text_field :is_watered  %>
+  <br />
+  <%= form.submit :create %>
+<% end %>
