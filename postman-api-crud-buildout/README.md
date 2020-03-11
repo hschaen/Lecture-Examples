@@ -8,12 +8,12 @@
 - Remove unnecessary files
 - $ rails db:migrate
 - $ rails c
-- > Student.create name: "Austin", cohort: "Alpha"
-- > Student.create name: "Heya", cohort: "Alpha"
-- > Student.create name: "Meo", cohort: "Alpha"
-- > Student.create name: "Xena", cohort: "Alpha"
-- > Student.create name: "Kristen", cohort: "Foxtrot"
-- > Student.all
+- `>` Student.create name: "Austin", cohort: "Alpha"
+- `>` Student.create name: "Heya", cohort: "Alpha"
+- `>` Student.create name: "Meo", cohort: "Alpha"
+- `>` Student.create name: "Xena", cohort: "Alpha"
+- `>` Student.create name: "Kristen", cohort: "Foxtrot"
+- `>` Student.all
 - $ rails s
 
 ## Routes
@@ -64,13 +64,15 @@ end
 ```
 - In Postman navigate to `Body` tab
 - Select `raw` click button
-- Enter a JSON object for a new animal
+- Enter a JSON object for a new student
+```
 {
  	"student": {
   	"name": "Rachael",
   	"cohort": "Charlie",
     }
 }
+```
 - Look at error
 - Add `skip_before_action :verify_authenticity_token` to the file */app/controllers/application_controller.rb* which is the controller from which all other controllers inherit
 
