@@ -7,7 +7,7 @@ class App extends Component{
     super()
     this.state = {
       search: "", // Search can start with an empty string and be updated from the form
-      articles: [],
+      articles: [], // Articles is an empty array to store the parsed payload
       error: null // If we have an error from the API return it here
     }
   }
@@ -19,17 +19,16 @@ class App extends Component{
     let searchUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&api-key=${apiKey}`
 
     fetch(searchUrl) // Fetch returns a promise
+    // fetch has lots of helper methods - status, catch
     .then((response) => {
       if(response.status !== 200){
         throw({ message: "Could not perform search. Please try again." })
-      }
-        return response.json() // Return the response as JSON
+      } // allowing for error messages
+      return response.json() // Return the response as JSON
     })
     .then((payload) => {
-      console.log(payload.response.docs)
       let articles = payload.response.docs
       this.setState({ articles: articles })
-      console.log(this.state.articles)
     })
     .catch((error) => this.setState({error}))
   }

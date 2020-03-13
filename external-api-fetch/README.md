@@ -1,8 +1,8 @@
-# External API and Fetch
+cd ....# External API and Fetch
 
 ## Set Up
-- $ yarn create react-app 888888
-- $ cd 888888
+- $ yarn create react-app nyt-search
+- $ cd nyt-search
 - Delete unnecessary files
 
 ## Reactstrap
@@ -10,7 +10,7 @@
 - $ npm install --save bootstrap
 - $ npm install --save reactstrap react react-dom
 - Import Bootstrap CSS in the src/index.js file
-- import 'bootstrap/dist/css/bootstrap.min.css'
+- `import 'bootstrap/dist/css/bootstrap.min.css'`
 - bring in an Input and a Jumbotron
 
 ## API Set Up
@@ -33,10 +33,9 @@
 let apiKey = process.env.REACT_APP_MY_KEY_NAME_HERE
 ```
 
-
 ## Fetch / then
 - Mean Girls video
-- Asynchronous responses
+- Asynchronous responses fetch(searchUrl).then(response).then(payload)
 - Async/Await
 - Washing machine example
 
@@ -53,5 +52,3 @@ let endpoint = 'https://url//apikey'
 - Fetch sends the request which returns a promise
 - .then() gets the response from the API and returns it as JSON
 - When the first promise gets resolved, we get the received data/payload and can set it to state
-
--
