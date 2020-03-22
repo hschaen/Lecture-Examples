@@ -1,4 +1,4 @@
-cd ....# External API and Fetch
+# External API and Fetch
 
 ## Set Up
 - $ yarn create react-app nyt-search
