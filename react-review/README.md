@@ -1,21 +1,21 @@
 # Week 8: React Review
 
 ## React Review
-- $ yarn create react-app mcdonalds
-- $ cd mcdonalds
-- turn App.js into a class App
+- `$ yarn create react-app mcdonalds`
+- `$ cd mcdonalds`
+- Turn App.js into a class App
 
 #### User Stories
 - Create an app to keep track of my order total
 - Click on menu items to add items to the total
 
 #### Process
-- add reactstrap
-- $ npm install --save bootstrap
-- $ npm install --save reactstrap react react-dom
-- add `import 'bootstrap/dist/css/bootstrap.min.css'` to index.js
+- Add reactstrap
+- `$ npm install --save bootstrap reactstrap`
+- Add `import 'bootstrap/dist/css/bootstrap.min.css'` to index.js
 
-- add a state object
+- Add a state object
+Question: what do we need to add before `state`?
 ```
 this.state = {
   totalPrice: 0,
@@ -29,9 +29,9 @@ this.state = {
 }
 ```
 
-- create a Menu.js component with a basic setup
+- Create a Menu.js component with a basic setup
 
-- map through the menu in state and pass the values as props to Menu.js
+- Map through the menu in state and pass the values as props to Menu.js
 ```
 <h3>Select Your Items</h3>
 <div>
@@ -48,7 +48,7 @@ this.state = {
   </div>
 ```
 
-- add a reactstrap card Menu.js
+- Add a reactstrap card to Menu.js:
 ```
 <Card body>
   <CardTitle>Menu Item: { this.props.menuItem }</CardTitle>
@@ -56,18 +56,17 @@ this.state = {
   <Button onClick={ this.addItem }>Add { this.props.menuItem }</Button>
 </Card>
 ```
-- import necessary bootstrap components
+- Import necessary bootstrap components
 - `import { Card, CardTitle, CardText, Button } from "reactstrap"`
-
-
-- Add a method to Menu.js
+<br>
+- Add a method to Menu.js:
 ```
 addItem = () => {
   this.props.addMenuPrice(this.props.itemCost, this.props.itemEmoji)
 }
 ```
 
-- Add a method to App.js
+- Add a method to App.js:
 ```
 addMenuPrice = (price, emoji) => {
   let newTotal = this.state.totalPrice
@@ -77,10 +76,13 @@ addMenuPrice = (price, emoji) => {
 }
 ```
 
-- pass the method as props: `addMenuPrice={ this.addMenuPrice }`
+- Pass the method as props: 
+```addMenuPrice={ this.addMenuPrice }```
 
-- render the total price: `<p>Total cost: ${ this.state.totalPrice }</p>`
-- map through the emoji list
+- In App.js:
+    - Render the total price : 
+    ```<p>Total cost: ${ this.state.totalPrice }</p>```
+    - Map through the emoji list:
 ```
 <div style={{ height: "40px" }}>
   Items: { this.state.emojiList.map((value, index) => {
@@ -92,4 +94,6 @@ addMenuPrice = (price, emoji) => {
   })}
 </div>
 ```
-- Add styling to the cards: `<div style={{ display: "flex", flexWrap: "wrap"}}>`
+- In Menu.js:
+    - Add styling to the cards: 
+    ```<div style={{ display: "flex", flexWrap: "wrap"}}>```
